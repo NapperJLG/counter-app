@@ -18,11 +18,20 @@ class Counter extends Component {
     );
   }
 
+  handleIncrement = () => {
+    this.setState({ count: this.state.count + 1 });
+  };
+
   render() {
     return (
       <div>
         <span className={this.getBadgeClasses()}>{this.formatCount()}</span>
-        <button className="btn btn-secondary btn-sm">Increment</button>
+        <button
+          onClick={this.handleIncrement}
+          className="btn btn-secondary btn-sm"
+        >
+          Increment
+        </button>
         {this.state.tags.length === 0 && <p>Please create a tag!</p>}
         {this.renderTags()}
       </div>
